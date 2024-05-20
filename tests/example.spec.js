@@ -2,10 +2,10 @@
 const { test, expect } = require('@playwright/test');
 
 test('has title', async ({ page }) => {
-  await page.goto('https://spendonlife-qa2.ottest.net/us/6019/418p75w/DNBE/008/f/cs_4p_a008.aspx');
+  await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Personal Information/);
+  await expect(page).toHaveTitle(/Playwright/);
 });
 
 test('get started link', async ({ page }) => {
