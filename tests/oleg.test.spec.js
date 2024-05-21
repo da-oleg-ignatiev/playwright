@@ -5,12 +5,12 @@ import { log } from 'console';
 test('ScoreSense', async ({ page }) => {
   await page.goto('https://ss-spa-qa1.ottest.net/Authentication');
 
-  page.locator("css=[name='username']").fill('anneotestcsid@dataart.com');
+  await expect(page.getByTitle('Please enter your username.').fill('anneotestcsid@dataart.com')).resolves.toBeUndefined();
 
-       
-  //page.locator("xpath=//input[@class='login-page-main-password']").fill('password1');
+  await expect(page.getByTitle('Please enter your password.').fill('password1')).resolves.toBeUndefined();
 
-  await page.locator("xpath=//button[@class='login-page-main-sign-in-button']").click();
+
+  //await page.locator("xpath=//button[@class='login-page-main-sign-in-button']").click();
 });
 
 
