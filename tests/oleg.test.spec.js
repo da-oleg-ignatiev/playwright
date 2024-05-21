@@ -10,7 +10,8 @@ test('ScoreSense', async ({ page }) => {
   await expect(page.getByTitle('Please enter your password.').fill('password1')).resolves.toBeUndefined();
 
 
-  //await page.locator("xpath=//button[@class='login-page-main-sign-in-button']").click();
+  await page.locator("css=[class='login-page-main-sign-in-button']").click();
+  
 });
 
 
