@@ -1,6 +1,7 @@
-// @ts-check
 import { test, expect } from '@playwright/test';
-const { LoginPage } = require('../pages/login-page.js');
+import { LoginPage } from '../pages/login-page.js';
+
+// @ts-check
 
 test('ScoreSense', async ({ page }) => {
   const loginPage = new LoginPage(page);
@@ -14,9 +15,4 @@ test('ScoreSense', async ({ page }) => {
   
   // move to LoginPage class
   await page.locator("css=[class='login-page-main-sign-in-button']").click();
-  
 });
-
-
-
-
