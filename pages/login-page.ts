@@ -24,7 +24,7 @@ export class LoginPage {
 
   async goto() {
     await this.page.goto('https://ss-spa-qa1.ottest.net/Authentication');
-    await expect(this.signInButton, '"Sign In" button is not displayed')
+    await expect(this.signInButton, '"Sign In" button is not displayed') // assertion
     .toBeVisible({ timeout: 15000 });
   }
 
