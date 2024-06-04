@@ -4,7 +4,7 @@ import { PortalPage } from '../pages/portal-page.js';
 
 // @ts-check
 
-test('ScoreSense', async ({ page }) => {
+test('Login Test', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const portalPage = new PortalPage(page);
   await loginPage.goto();
