@@ -15,7 +15,8 @@ export class PortalPage {
     // Add your methods and actions for the portal page here
 
     async portalHeaderIsDisplayed() {
-        await expect(this.portalHeader).toBeVisible({ timeout: 15000 });
+        await expect(this.portalHeader, 'Portal header "ScoreSense" is not displayed')
+        .toBeVisible({ timeout: 15000 });
     }
 
     async performSomeAction() {

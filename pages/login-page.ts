@@ -3,7 +3,7 @@ import { expect, Page, Locator } from '@playwright/test';
 export class LoginPage {
   private page: Page;
   //getStartedLink;
-  private gettingStartedHeader: Locator;
+  //private gettingStartedHeader: Locator;
   //pomLink
   //tocList;
   private username: Locator;
@@ -20,12 +20,12 @@ export class LoginPage {
     this.username = page.getByTitle('Please enter your username.');
     this.password = page.getByTitle('Please enter your password.');
     this.signInButton = page.locator("css=[class='login-page-main-sign-in-button']");
-    this.gettingStartedHeader = this.signInButton;
   }
 
   async goto() {
     await this.page.goto('https://ss-spa-qa1.ottest.net/Authentication');
-    await expect(this.gettingStartedHeader).toBeVisible({ timeout: 15000 });
+    await expect(this.signInButton, '"Sign In" button is not displayed')
+    .toBeVisible({ timeout: 15000 });
   }
 
   async login() {
