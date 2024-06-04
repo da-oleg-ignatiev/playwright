@@ -1,14 +1,14 @@
 import { expect, Page, Locator } from '@playwright/test';
 
 export class LoginPage {
-  page;
+  private page: Page;
   //getStartedLink;
-  gettingStartedHeader;
+  private gettingStartedHeader: Locator;
   //pomLink
   //tocList;
-  username;
-  password;
-  signInButton;
+  private username: Locator;
+  private password: Locator;
+  private signInButton: Locator;
 
 
   constructor(page) {
