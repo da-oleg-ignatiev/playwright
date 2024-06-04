@@ -3,8 +3,8 @@ import { defineConfig } from '@playwright/test';
 import { LoginPage } from '../pages/login-page.js';
 import { PortalPage } from '../pages/portal-page.js';
 
-export default defineConfig({ // setting global timeout for all tests
-  timeout: 15000,
+export default defineConfig({ // global timeout for all tests
+  timeout: 1 * 15 * 1000, // is equivalent to 15 seconds
 });
 
 test('Login Test', async ({ page }) => { // 'Login Test' is the name of the test
@@ -13,4 +13,6 @@ test('Login Test', async ({ page }) => { // 'Login Test' is the name of the test
   await loginPage.goto();
   await loginPage.login();
   await portalPage.portalHeaderIsDisplayed();
+  
+  await page.context().close();
 });
