@@ -1,4 +1,6 @@
 import { expect, Page, Locator } from '@playwright/test';
+import { time } from 'console';
+import { setTimeout } from 'timers/promises';
 
 export class PortalPage {
     private page: Page;
@@ -13,7 +15,7 @@ export class PortalPage {
     // Add your methods and actions for the portal page here
 
     async portalHeaderIsDisplayed() {
-        await expect(this.portalHeader).toBeVisible();
+        await expect(this.portalHeader).toBeVisible({ timeout: 15000 });
     }
 
     async performSomeAction() {

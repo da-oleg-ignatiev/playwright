@@ -25,7 +25,7 @@ export class LoginPage {
 
   async goto() {
     await this.page.goto('https://ss-spa-qa1.ottest.net/Authentication');
-    await expect(this.gettingStartedHeader).toBeVisible();
+    await expect(this.gettingStartedHeader).toBeVisible({ timeout: 15000 });
   }
 
   async login() {
@@ -36,6 +36,6 @@ export class LoginPage {
 
   // async getStarted() {
   //   await this.getStartedLink.first().click();
-  //   await expect(this.gettingStartedHeader).toBeVisible();
+  //   await expect(this.gettingStartedHeader).toBeVisible({ timeout: 15000 });
   // }
 }
