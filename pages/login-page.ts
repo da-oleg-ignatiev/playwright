@@ -25,7 +25,7 @@ export class LoginPage {
   async goto() {
     await this.page.goto('https://ss-spa-qa1.ottest.net/Authentication');
     await expect(this.signInButton, '"Sign In" button is not displayed') // assertion
-    .toBeVisible({ timeout: 15000 });
+    .toBeVisible();
   }
 
   async login() {
@@ -36,6 +36,6 @@ export class LoginPage {
 
   // async getStarted() {
   //   await this.getStartedLink.first().click();
-  //   await expect(this.gettingStartedHeader).toBeVisible({ timeout: 15000 });
+  //   await expect(this.gettingStartedHeader).toBeVisible();
   // }
 }
