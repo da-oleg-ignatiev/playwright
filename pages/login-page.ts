@@ -11,7 +11,7 @@ export class LoginPage {
   private signInButton: Locator;
 
 
-  constructor(page) {
+  constructor(page: Page) {
     this.page = page;
     //this.getStartedLink = page.locator('div', { hasText: 'Sign In' });
     //this.pomLink = page.locator('li', {hasText: 'Guides',}).locator('a', {hasText: 'Page Object Model',});

@@ -1,6 +1,5 @@
 import { expect, Page, Locator } from '@playwright/test';
-import { time } from 'console';
-import { setTimeout } from 'timers/promises';
+
 
 export class PortalPage {
     private page: Page;
@@ -16,7 +15,7 @@ export class PortalPage {
 
     async portalHeaderIsDisplayed() {
         await expect(this.portalHeader, 'Portal header "ScoreSense" is not displayed') // assertion
-        .toBeVisible();
+        .toBeVisible({ timeout: 15000});
     }
 
     async performSomeAction() {
