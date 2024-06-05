@@ -11,7 +11,7 @@ test('Login Test', async ({ page }) => { // 'Login Test' is the name of the test
   await portalPage.portalHeaderIsDisplayed();
 });
 
-test('Unique Test', async () => {
+test('DB Test', async () => {
   console.log('Test is running...');
   const sqlQuery = "SELECT TOP 1 FROM  CreditFulfillment WHERE c.EmailAddress = 'GARYGRAHART@gmail.com'";
   const pool = await getPool();
