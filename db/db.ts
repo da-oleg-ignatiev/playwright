@@ -11,7 +11,7 @@ export async function getPool() {
       user: uzer,
       password: 'Pom1dor4ik',
       server: 'AWECORPQA1DB01.onetech.local',
-      database: 'AWECORPQA1DB01.onetech.local',
+      database: '',
       port: 1433,
       options: {
         trustServerCertificate: true,
@@ -25,13 +25,4 @@ export async function getPool() {
   return pool;
 }
 
-test('DB', async () => { // 'DB Test' is the name of the test
-  const sqlQuery = "SELECT TOP 1 FROM  CreditFulfillment WHERE c.EmailAddress = 'GARYGRAHART@gmail.com'";
-  const pool = await getPool();
-  if (pool) {
-    const result = await pool.request().query(sqlQuery);
-    console.log(result);
-    expect(result.recordset.length).toBe(1);
-  }
-});
     
