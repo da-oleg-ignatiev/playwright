@@ -5,9 +5,10 @@ import { ConnectionPool } from 'mssql';
 let pool: ConnectionPool;
 
 export async function getPool() {
+  var uzer = String.raw`ONETECH\svc-jenkinsblds`;
   if (!pool) {
     pool = new ConnectionPool({
-      user: 'ONETECH\svc-jenkinsblds',
+      user: uzer,
       password: 'Pom1dor4ik',
       server: 'AWECORPQA1DB01.onetech.local',
       database: 'AWECORPQA1DB01.onetech.local',
