@@ -19,7 +19,12 @@ export async function getPool() {
       }
     });
 
-    await pool.connect();
+    try {
+      await pool.connect();
+      console.log('Connected to the database');
+    } catch (error) {
+      console.error('Error connecting to the database:', error.message);
+    }
   }
 
   return pool;
