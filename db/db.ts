@@ -1,26 +1,36 @@
 
-import * as sql from 'mssql';
+import test, { expect } from '@playwright/test';
+import { ConnectionPool } from 'mssql';
 
-export const config = {
-        user: 'ONETECH\svc-jenkinsblds',
-        host: 'localhost',
-        database: 'AWECORPQA1DB01.onetech.local',
-        password: 'Pom1dor4ik',
-        port: 5477,
-        idleTimeoutMillis: 30000,
-        connectionTimeoutMillis: 2000,
-        options: {
-          trustServerCertificate: true,
-          encrypt: true,
-        }
-    };   
-    
-    export let pool: sql.ConnectionPool; // Declare the 'pool' variable
+let pool: ConnectionPool;
 
-    try {
-      pool = await sql.connect(JSON.stringify(config)); // Assign a value to 'pool'
-      console.log('Connected to the database');
-    } catch (error) {
-      console.error('Error connecting to the database:', error);
-    }
+export async function getPool() {
+  if (!pool) {
+    pool = new ConnectionPool({
+      user: 'ONETECH\svc-jenkinsblds',
+      password: 'Pom1dor4ik',
+      server: 'localhost',
+      database: 'AWECORPQA1DB01.onetech.local',
+      port: 5477,
+      options: {
+        trustServerCertificate: true,
+        encrypt: true,
+      }
+    });
+
+    await pool.connect();
+  }
+
+  return pool;
+}
+
+test('DB', async () => { // 'DB Test' is the name of the test
+  const sqlQuery = "SELECT TOP 1 FROM  CreditFulfillment WHERE c.EmailAddress = 'GARYGRAHART@gmail.com'";
+  const pool = await getPool();
+  if (pool) {
+    const result = await pool.request().query(sqlQuery);
+    console.log(result);
+    expect(result.recordset.length).toBe(1);
+  }
+});
     
