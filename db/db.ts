@@ -9,9 +9,9 @@ export async function getPool() {
     pool = new ConnectionPool({
       user: 'ONETECH\svc-jenkinsblds',
       password: 'Pom1dor4ik',
-      server: 'localhost',
+      server: 'AWECORPQA1DB01.onetech.local',
       database: 'AWECORPQA1DB01.onetech.local',
-      port: 5477,
+      port: 1433,
       options: {
         trustServerCertificate: true,
         encrypt: true,
