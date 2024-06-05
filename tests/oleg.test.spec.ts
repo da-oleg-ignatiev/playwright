@@ -13,7 +13,7 @@ test('Login Test', async ({ page }) => { // 'Login Test' is the name of the test
 
 test('DB Test', async () => {
   console.log('Test is running...');
-  const sqlQuery = "SELECT TOP 1 FROM  CreditFulfillment WHERE c.EmailAddress = 'GARYGRAHART@gmail.com'";
+  const sqlQuery = "SELECT TOP(1) * FROM creditfulfillment.dbo.Members";
   const pool = await getPool();
   if (pool) {
     const result = await pool.request().query(sqlQuery);
